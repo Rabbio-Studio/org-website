@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: "Deploy to GitHub Pages"
 
 on:
   push:
@@ -23,19 +23,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: "Step 1: Download code from repository"
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: "Step 2: Configure hosting environment"
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
-      - name: Upload artifact
+      - name: "Step 3: Package website files"
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
 
-      - name: Deploy to GitHub Pages
+      - name: "Step 4: Push live to internet"
         id: deployment
         uses: actions/deploy-pages@v4
